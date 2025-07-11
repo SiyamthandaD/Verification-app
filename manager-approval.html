@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manager Approval | Bank of Braamfontein</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="login.css">
+</head>
+<body>
+<header class="bank-header">
+    <div class="container">
+        <img src="logo.jpg" alt="Bank of Braamfontein" class="bank-logo">
+        <h1 class="mb-2">Bank of Braamfontein</h1>
+        <p class="slogan">Rooted in Braamfontein, Focused on You.</p>
+    </div>
+</header>
+
+<main class="container">
+    <div class="approval-container">
+        <h2 class="page-title">Manager Approval</h2>
+        <p class="mb-4 text-muted">Review the access request and provide your details to approve.</p>
+
+        <div class="mb-4">
+            <h5 class="mb-3 text-primary">Request Details:</h5>
+            <p class="detail-item"><strong>Employee Name:</strong> <span id="employee-name"></span></p>
+            <p class="detail-item"><strong>Employee Email:</strong> <span id="employee-email"></span></p>
+            <p class="detail-item"><strong>Document Requested:</strong> <span id="document"></span></p>
+        </div>
+
+        <form id="managerApprovalForm">
+            <h5 class="mb-3 text-primary">Manager Details:</h5>
+            <div class="mb-4 input-icon">
+                <i class="fas fa-user"></i>
+                <input type="text" class="form-control" name="manager_name" placeholder="Your Name" required>
+            </div>
+            <div class="mb-4 input-icon">
+                <i class="fas fa-envelope"></i>
+                <input type="email" class="form-control" name="manager_email" placeholder="Your Email" required>
+            </div>
+
+            <input type="hidden" id="hidden-employee-name" name="employee-name">
+            <input type="hidden" id="hidden-employee-email" name="employee-email">
+            <input type="hidden" id="hidden-document" name="document">
+
+            <button type="submit" class="btn btn-primary mt-3">
+                <i class="fas fa-check-circle me-2"></i> Approve Request
+            </button>
+            <a href="login.html" class="btn btn-secondary-outline mt-3">
+                <i class="fas fa-arrow-left me-2"></i> Back to Employee Request
+            </a>
+        </form>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p class="mb-0">&copy; 2025 Bank of Braamfontein. All rights reserved.</p>
+        <p class="mb-0 small">Secure banking for our community</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const employeeName = urlParams.get('employee-name') || 'N/A';
+        const employeeEmail = urlParams.get('employee-email') || 'N/A';
+        const documentName = urlParams.get('document') || 'N/A';
+
+        // Populate the displayed fields
+        document.getElementById('employee-name').textContent = employeeName;
+        document.getElementById('document').textContent = documentName;
+        document.getElementById('employee-email').textContent = employeeEmail;
+
+        // Also populate hidden form fields
+        document.getElementById('hidden-employee-name').value = employeeName;
+        document.getElementById('hidden-employee-email').value = employeeEmail;
+        document.getElementById('hidden-document').value = documentName;
+
+        // Handle form submission
+        const form = document.getElementById('managerApprovalForm');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const managerName = document.querySelector('input[name="manager_name"]').value;
+            const managerEmail = document.querySelector('input[name="manager_email"]').value;
+
+            // Validate inputs
+            if (!managerName || !managerEmail) {
+                alert('Please fill in all manager details');
+                return;
+            }
+
+            // Construct URL with all parameters
+            const params = new URLSearchParams();
+            params.append('employee-name', employeeName);
+            params.append('employee-email', employeeEmail);
+            params.append('document', documentName);
+            params.append('manager_name', managerName);
+            params.append('manager_email', managerEmail);
+
+            // Redirect to verification page
+            window.location.href = 'verification.html?' + params.toString();
+        });
+    });
+</script>
+</body>
+</html>
