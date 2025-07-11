@@ -1,93 +1,95 @@
-# Siyamthanda Dlakavu - Personal CV Website
+Bank of Braamfontein - Document Access Application
+This repository contains a multi-step web application for the "Bank of Braamfontein" designed to manage and streamline internal document access requests, manager approvals, and verification processes.
 
-## Table of Contents
+Table of Contents
+About
 
-- [About](#about)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Projects](#projects)
-- [Setup and Usage](#setup-and-usage)
-- [Important Note for Chatbot Integration](#important-note-for-chatbot-integration)
-- [Contact](#contact)
+Features
 
-## About
+Pages
 
-This is the personal Curriculum Vitae (CV) website for Siyamthanda Dlakavu, a Junior Frontend Developer with a solid background in web technologies, IT administration, and cloud computing. The website showcases skills, experience, and projects, reflecting a passion for building responsive, user-centric web applications and maintaining robust IT environments.
+Technologies Used
 
-## Features
+Setup and Usage
 
-* **Responsive Design:** Optimized for various devices and screen sizes.
-* **Comprehensive CV Sections:** Includes About, Info, Skills, Experience, Achievements, Portfolio (Projects), and Contact sections.
-* **Skill Highlight:** Detailed breakdown of both Technical and Soft Skills.
-* **Interactive Chatbot:** Integration of an AI-powered chatbot (Dialogflow) to enhance user engagement and provide interactive assistance.
-* **Project Showcase:** Dedicated section to highlight key projects with links to GitHub repositories and live demos.
-* **Downloadable CV:** Option for visitors to download the CV in `.docx` format.
+Contributing
 
-## Technologies Used
+License
 
-The website is built using a combination of foundational web technologies:
+About
+The Bank of Braamfontein Document Access Application provides a secure workflow for employees to request access to internal documents, for managers to approve these requests, and for a final verification step before access is granted. This system aims to enhance security and accountability for sensitive document access within the organization.
 
-* **Frontend:**
-    * HTML5
-    * CSS3
-    * JavaScript
-* **Backend/Integration (for Chatbot):**
-    * Dialogflow (Google Cloud)
-    * JavaScript API for Dialogflow integration
-    * Natural Language Processing (NLP) concepts are applied via Dialogflow.
-* **Other highlighted skills in CV content that may be relevant:**
-    * Python, Java, C++
-    * Microsoft Azure Cloud
-    * IT Support & Troubleshooting
-    * Database Management (SQL)
-    * Network Configuration
+Features
+Employee Request Form: A user-friendly interface for employees to submit document access requests.
 
-## Projects
+Manager Approval Page: A dedicated page for managers to review request details and approve or deny access.
 
-### Personal CV Website
-* **Description:** The website itself, designed to showcase skills, experience, and projects.
-* **Technologies:** HTML5, CSS3, JavaScript, Responsive Design.
-* **GitHub Repository:** [https://github.com/SiyamthandaD/My-cv-website](https://github.com/SiyamthandaD/My-cv-website)
-* **Live Demo:** [https://siyamthandad.github.io/My-cv-website/](https://siyamthandad.github.io/My-cv-website/)
+OTP Verification: A 6-digit One-Time Password (OTP) verification step for enhanced security (simulated).
 
-### AI Chatbot Integration
-* **Description:** Implemented a Dialogflow-powered chatbot to enhance user engagement and provide interactive assistance.
-* **Technologies:** Dialogflow, JavaScript API, Natural Language Processing.
-* **GitHub Repository:** [https://github.com/SiyamthandaD/AI-Chat-Bot-Project](https://github.com/SiyamthandaD/AI-Chat-Bot-Project)
-* **Try the Chatbot:** Available directly on the live demo website.
+Success Confirmation: A clear confirmation page upon successful document access.
 
-## Setup and Usage
+Responsive Design: Styled with Bootstrap and custom CSS for a consistent look and feel.
 
-To run this project locally, follow these steps:
+Form Validation: Basic client-side validation for input fields.
 
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/SiyamthandaD/My-cv-website.git](https://github.com/SiyamthandaD/My-cv-website.git)
-    ```
-2.  **Navigate to the project directory:**
-    ```bash
-    cd My-cv-website
-    ```
-3.  **Open `index.html`:** Simply open the `index.html` file in your preferred web browser. As this is a static website, no special server setup is required to view the basic content.
+Pages
+The application consists of the following HTML pages:
 
-### Chatbot Specific Setup (For Development/Testing)
+login.html: The initial page where employees request access by providing their name, email, and the document name.
 
-The chatbot integration uses Google Dialogflow. To get the chatbot fully functional in a local development environment:
+manager-approval.html: Displays the employee's request details and allows a manager to input their name and email to approve the request.
 
-1.  **Dialogflow Project ID:** Update the `dialogflowConfig.projectId` in `index.html` with your Dialogflow Project ID.
-2.  **Authentication Token:** The current implementation uses a placeholder `YOUR_TEMPORARY_ACCESS_TOKEN`. For testing purposes, you can generate a temporary access token using `gcloud auth print-access-token` if you have the Google Cloud SDK configured.
-3.  **Important:** For a production environment, it is crucial to implement a secure backend service to handle Dialogflow interactions and manage API keys. Do **NOT** expose API keys directly in the frontend code.
+verification.html: Simulates an OTP (One-Time Password) verification process, requiring a 6-digit code.
 
-## Important Note for Chatbot Integration
+success.html: Confirms that document access has been granted and the event logged.
 
-The current chatbot implementation within `index.html` is for **demonstration purposes only**. It directly exposes a placeholder for an access token and makes direct calls to the Dialogflow API from the client-side.
+Technologies Used
+HTML5: For the structure and content of the web pages.
 
-**For any production deployment, you MUST:**
-1.  Create a secure backend endpoint to authenticate with your Dialogflow service account.
-2.  Have your frontend call that backend endpoint to obtain a token securely, preventing direct exposure of sensitive credentials.
+CSS3: For styling and layout, including custom styles in login.css.
 
-## Contact
+JavaScript: For interactive elements, form handling, data passing between pages, and OTP logic.
 
-You can reach out to Siyamthanda Dlakavu via the contact form on the website.
+Bootstrap 5.3: A popular CSS framework for responsive design and pre-built components.
 
-**Author:** Siyamthanda Dlakavu
+Font Awesome 6.4.0: For various icons used throughout the application.
+
+Google Fonts (Montserrat): For typography.
+
+Setup and Usage
+To run this application locally, follow these simple steps:
+
+Clone the repository (or download the files):
+If you have the files locally, ensure they are in the same directory:
+
+login.html
+
+manager-approval.html
+
+verification.html
+
+success.html
+
+login.css
+
+logo.jpg
+
+Open login.html:
+Simply open the login.html file in your preferred web browser. No special server setup is required as this is a static web application.
+
+Navigate the workflow:
+
+Fill out the form on login.html and submit to proceed to manager-approval.html.
+
+On manager-approval.html, fill in manager details and approve to go to verification.html.
+
+On verification.html, enter any 6 digits (as the OTP is simulated) and verify to reach success.html.
+
+Note on OTP Verification:
+The OTP verification in verification.html is currently a client-side simulation for demonstration purposes. In a real-world scenario, this would involve a backend service to generate, send (e.g., via email or SMS), and validate the OTP securely. The alert() for "New verification code sent" is also a placeholder.
+
+Contributing
+Contributions to improve this application are welcome! Please feel free to fork the repository, make your changes, and submit a pull request.
+
+License
+This project is open-source and available under the MIT License.
